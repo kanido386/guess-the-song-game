@@ -1,0 +1,2 @@
+xpinyin==0.5.5
+bopomofo==0.1.2
