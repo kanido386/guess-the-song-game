@@ -3,9 +3,9 @@
 # https://developers.google.com/youtube/v3/docs/search/list
 from googleapiclient.discovery import build
 
-import config
+import credentials
 
-youTubeApiKey = config.api_key['youtube']
+youTubeApiKey = credentials.api_key['youtube']
 youtube = build('youtube', 'v3', developerKey=youTubeApiKey)
 
 print('==============================')
