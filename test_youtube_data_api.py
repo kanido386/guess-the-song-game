@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 
 import credentials
 
-youTubeApiKey = credentials.api_key['youtube']
+youTubeApiKey = credentials.youtube['api_key']
 youtube = build('youtube', 'v3', developerKey=youTubeApiKey)
 
 print('==============================')
