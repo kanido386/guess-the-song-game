@@ -3,11 +3,16 @@
 ### 靈感來源
 [三個麻瓜](https://www.youtube.com/channel/UC-Es7ozDeMMPy9_jH6uL5TA) - [另類猜歌九宮格](https://www.youtube.com/watch?v=hhlk5GABq64)
 
+### To-do
+- [ ] （test_kkbox_open_api.py）Normalize 音檔的聲音大小
+- [ ] 試用 chinese-word-to-emoji 相關現成套件
+- [ ] 研究怎麼 reverse 音檔（也許 pysox 可以做到，如果要用這個套件的話，記得在底下加上安裝說明）
+
 ### 實作相關
 - [x] 用 YouTube Data API 抓 YouTube 影片的網址
 - [x] 用「YouTube 轉 mp3」的相關套件抓歌曲音檔
 - [x] 想抓「某某」歌 => 用「某某 lyrics」當關鍵詞搜尋 YouTube => 找最相關的影片當作目標 => 請套件做他該做的事情
-- [ ] 用 API 或爬蟲抓取 KKBOX 排行榜的歌名
+- [x] 用 API 或爬蟲抓取 KKBOX 排行榜的歌名
 
 ### 遊戲模式
 - [ ] 同時播放**多首**歌，讓玩家猜出現在播放的是哪幾首歌
