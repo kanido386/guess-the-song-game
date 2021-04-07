@@ -7,6 +7,7 @@ class KkboxAgent(object):
 
   def __init__(self):
     self.access_token = None
+    self.playlist_id = None
 
     self.init_access_token()
 
