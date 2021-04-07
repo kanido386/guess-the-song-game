@@ -1,4 +1,5 @@
 from worker.kkbox_agent import KkboxAgent
+from worker.youtube_agent import YoutubeAgent
 
 class Main(object):
 
@@ -12,7 +13,8 @@ class Main(object):
     kkbox = KkboxAgent()
     # TODO: it shows KkboxAgent's main goal
     self.temp_list = kkbox.get_tracks()
-    print(self.temp_list)
+    # print(self.temp_list)
+    youtube = YoutubeAgent(self.temp_list)
 
 
 if __name__ == '__main__':
