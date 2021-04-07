@@ -25,7 +25,7 @@ def get_access_token():
 
 
 # https://docs-en.kkbox.codes/#get-/charts
-def get_chart_playlists():  # TODO:
+def get_chart_playlists():
   
   access_token = get_access_token()
 
@@ -50,7 +50,7 @@ def get_chart_playlists():  # TODO:
 
 
 # https://docs-en.kkbox.codes/#get-/charts/{playlist_id}/tracks
-def get_tracks_of_chart_playlist(playlist_id):  # TODO:
+def get_tracks_of_chart_playlist(playlist_id):
 
   access_token = get_access_token()
 
@@ -76,7 +76,7 @@ def get_tracks_of_chart_playlist(playlist_id):  # TODO:
     print('==============================')
 
 
-def get_cleaner_name(name):   # TODO:
+def get_cleaner_name(name):
 
   cleaner_name = name
 
@@ -96,4 +96,4 @@ def get_cleaner_name(name):   # TODO:
 
 
 # get_chart_playlists()
-get_tracks_of_chart_playlist('HZsJnXizzAH64_DrMp')  # TODO:
+get_tracks_of_chart_playlist('HZsJnXizzAH64_DrMp')
