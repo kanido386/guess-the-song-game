@@ -5,6 +5,7 @@
 
 ### To-do
 - [ ] （test_kkbox_open_api.py）Normalize 音檔的聲音大小
+- [ ] 試試 pafy & vlc 這兩個套件（參考[這篇的最佳回答](https://stackoverflow.com/questions/49354232/how-to-stream-audio-from-a-youtube-url-in-python-without-download)）
 - [x] 試用 chinese-word-to-emoji 相關現成套件（試過了 techkang/zh2emoji，可惜不符合我的需求）
 - [ ] 研究怎麼 reverse 音檔（也許 pysox 可以做到，如果要用這個套件的話，記得在底下加上安裝說明）
 
