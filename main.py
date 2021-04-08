@@ -5,6 +5,7 @@ class Main(object):
 
   def __init__(self):
     self.temp_list = None
+    self.song_list = None
 
     self.run()
 
@@ -15,6 +16,9 @@ class Main(object):
     self.temp_list = kkbox.get_tracks()
     # print(self.temp_list)
     youtube = YoutubeAgent(self.temp_list)
+    # youtube.print_song_list()
+    self.song_list = youtube.get_song_list()
+    # print(self.song_list)
 
 
 if __name__ == '__main__':
