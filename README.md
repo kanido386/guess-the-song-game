@@ -4,7 +4,7 @@
 [三個麻瓜](https://www.youtube.com/channel/UC-Es7ozDeMMPy9_jH6uL5TA) - [另類猜歌九宮格](https://www.youtube.com/watch?v=hhlk5GABq64)
 
 ### To-do
-- [ ] （youtube_agent.py）拆分成幾個小部分，主要任務是讓使用者拿到影片網址
+- [x] （youtube_agent.py）拆分成幾個小部分，主要任務是讓使用者拿到影片網址
 - [ ] （youtube_agent.py）把抓到的影片網址存進 txt 或 json 之類的檔案裡面，不然重複抓浪費 quota
 - [ ] （test_kkbox_open_api.py）Normalize 音檔的聲音大小
 - [x] 試試 pafy & vlc 這兩個套件（參考[這篇的最佳回答](https://stackoverflow.com/questions/49354232/how-to-stream-audio-from-a-youtube-url-in-python-without-download)）
