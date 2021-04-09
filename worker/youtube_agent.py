@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import json
 from googleapiclient.discovery import build
 import credentials
 
@@ -12,6 +13,7 @@ class YoutubeAgent(object):
 
     self.init_youtube()
     self.init_song_list()
+    self.save_song_list()
 
 
   def init_youtube(self):
@@ -20,6 +22,7 @@ class YoutubeAgent(object):
 
 
   def init_song_list(self):
+    # TODO: 拆成讀檔的 init ＆ 從 YouTube 抓的版本
     for artist, song in self.tracks:
       request = self.youtube.search().list(
         part='snippet',
@@ -47,3 +50,16 @@ class YoutubeAgent(object):
 
   def get_song_list(self):
     return self.song_list
+
+
+  def save_song_list(self):
+    # TODO: 以第一個為主來當作參考資料（畢竟是 list）
+    # https://pythonexamples.org/python-list-to-json/
+    # https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
+    with open('data.txt', 'w', encoding='utf-8') as outfile:
+      # http://litaotju.github.io/python/2016/06/28/python-json-dump-utf/
+      json.dump(self.song_list, outfile, ensure_ascii=False)
+
+    # TODO: 用下面的 list 來判別有無重複
+    test = [f'{item[0]} - {item[1]}' for item in self.song_list]
+    print(test)

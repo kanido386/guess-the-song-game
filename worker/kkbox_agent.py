@@ -92,7 +92,7 @@ class KkboxAgent(object):
     params = {
       'territory': 'TW',    # Allowed: HK, JP, MY, SG, TW
       'offset': 0,
-      'limit': 30
+      'limit': 5            # TODO: modify this
     }
 
     response = requests.get(url, headers=headers, params=params)
