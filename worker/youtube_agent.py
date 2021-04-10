@@ -12,7 +12,8 @@ class YoutubeAgent(object):
     self.song_list = []
 
     self.init_youtube()
-    self.init_song_list()
+    self.init_song_list_with_txt()
+    self.add_tracks_to_song_list()
     self.save_song_list()
 
 
@@ -21,9 +22,24 @@ class YoutubeAgent(object):
     self.youtube = build('youtube', 'v3', developerKey=youTubeApiKey)
 
 
-  def init_song_list(self):
-    # TODO: 拆成讀檔的 init ＆ 從 YouTube 抓的版本
+  def init_song_list_with_txt(self):
+    # https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
+    with open('data.txt') as json_file:
+      song_list = json.load(json_file)
+      for item in song_list:
+        artist, song, videoUrl = item
+        self.song_list.append((artist, song, videoUrl))
+
+
+
+  def add_tracks_to_song_list(self):
+    # 用下面的 list 來判別有無重複
+    artist_song_list = [f'{item[0]} - {item[1]}' for item in self.song_list]
+
     for artist, song in self.tracks:
+      if f'{artist} - {song}' in artist_song_list:
+        continue
+
       request = self.youtube.search().list(
         part='snippet',
         q=f'{artist} {song} lyrics',
@@ -53,13 +69,7 @@ class YoutubeAgent(object):
 
 
   def save_song_list(self):
-    # TODO: 以第一個為主來當作參考資料（畢竟是 list）
     # https://pythonexamples.org/python-list-to-json/
-    # https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
     with open('data.txt', 'w', encoding='utf-8') as outfile:
       # http://litaotju.github.io/python/2016/06/28/python-json-dump-utf/
       json.dump(self.song_list, outfile, ensure_ascii=False)
-
-    # TODO: 用下面的 list 來判別有無重複
-    test = [f'{item[0]} - {item[1]}' for item in self.song_list]
-    print(test)
