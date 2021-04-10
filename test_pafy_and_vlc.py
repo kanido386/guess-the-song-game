@@ -17,7 +17,9 @@ from time import sleep
 
 ''' Get correct / best URL from youtube using pafy '''
 # url = 'https://www.youtube.com/watch?v=pM9zZinLvkA'
-url = 'https://www.youtube.com/watch?v=9u12XQ50wy4'
+# TODO: 下面的連結會有 bug（因為喜歡不喜歡數都是0，待修，跟pafy有關，也許可發PR）
+# url = 'https://www.youtube.com/watch?v=MUXF1RHzVbU'
+url = 'https://www.youtube.com/watch?v=vjTKB65XXKM'
 video = pafy.new(url)
 best = video.getbest()
 playurl = best.url
