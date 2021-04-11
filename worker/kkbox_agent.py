@@ -4,6 +4,7 @@ import requests
 import credentials
 
 class KkboxAgent(object):
+  ''' 抓取 KKBOX 排行榜的歌名 '''
 
   def __init__(self):
     self.access_token = None

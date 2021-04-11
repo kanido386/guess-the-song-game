@@ -5,6 +5,7 @@ from googleapiclient.discovery import build
 import credentials
 
 class YoutubeAgent(object):
+  ''' 抓 YouTube 影片的網址 '''
 
   def __init__(self, tracks):
     self.youtube = None
@@ -40,6 +41,7 @@ class YoutubeAgent(object):
       if f'{artist} - {song}' in artist_song_list:
         continue
 
+      # 想抓「某某」歌 => 用「某某 lyrics」當關鍵詞搜尋 YouTube => 找最相關的影片當作目標
       request = self.youtube.search().list(
         part='snippet',
         q=f'{artist} {song} lyrics',
