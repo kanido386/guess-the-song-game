@@ -43,6 +43,7 @@ while True:
   print('（轉檔中）')
 
   y, sr = librosa.load(f'{filepath}/temp.webm')
+  y = librosa.util.normalize(y)
 
   if os.path.exists(f'{filepath}/temp.webm'):
     os.remove(f'{filepath}/temp.webm')
