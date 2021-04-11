@@ -6,8 +6,7 @@
 ### To-do
 - [ ] （test_pytube.py）參考 OSR 做 normalize
 - [ ] （test_pytube.py）包成 module
-- [ ] （main.py）三個 module 套在一起，有個簡單的雛形
-==============================
+- [ ] （main.py）三個 module 套在一起，有個簡單的雛形<br>==============================
 - [ ] 研究怎麼 reverse 音檔（也許 pysox 可以做到，如果要用這個套件的話，記得在底下加上安裝說明）
 
 ### 遊戲模式
