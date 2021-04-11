@@ -1,5 +1,6 @@
 from worker.kkbox_agent import KkboxAgent
 from worker.youtube_agent import YoutubeAgent
+from worker.pytube_agent import PytubeAgent
 
 class Main(object):
 
@@ -19,6 +20,11 @@ class Main(object):
     # youtube.print_song_list()
     self.song_list = youtube.get_song_list()
     # print(self.song_list)
+    
+    for artist, song, videoUrl in self.song_list:
+      # print(f'{artist} - {song}: {videoUrl}')
+      pytube = PytubeAgent(artist, song, videoUrl)
+      pytube.run()
 
 
 if __name__ == '__main__':

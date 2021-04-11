@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import os
 from googleapiclient.discovery import build
 import credentials
 
@@ -25,6 +26,11 @@ class YoutubeAgent(object):
 
   def init_song_list_with_txt(self):
     # https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
+    if not os.path.exists('data.txt'):
+      with open('data.txt', 'w'):
+        return
+
+    # TODO: 如果 data.txt 是空的會出錯！
     with open('data.txt') as json_file:
       song_list = json.load(json_file)
       for item in song_list:

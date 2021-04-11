@@ -78,6 +78,7 @@ class KkboxAgent(object):
     self.playlist_id = self.chart_playlists[the_id][0]
     self.playlist_title = self.chart_playlists[the_id][1]
     print(f'您選了【{self.playlist_title}】！')
+    print('===================================')
 
 
   def init_tracks_of_chart_playlist(self):
