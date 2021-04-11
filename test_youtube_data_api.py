@@ -16,10 +16,13 @@ while True:
   query = input('請輸入歌曲名稱: ')
   if query == 'stop':
     break
+  artist_name = input('誰的歌？ ')
+  if artist_name == 'stop':
+    break
   
   request = youtube.search().list(
     part='snippet',
-    q=f'{query} lyrics',
+    q=f'{artist_name} {query} lyrics',
     type='video'
   )
   response = request.execute()
