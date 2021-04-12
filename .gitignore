@@ -3,3 +3,4 @@ __pycache__
 Audio/
 credentials.py
 data.txt
+song.txt

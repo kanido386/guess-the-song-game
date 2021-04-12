@@ -16,7 +16,7 @@ class Main(object):
     # TODO: it shows KkboxAgent's main goal
     self.temp_list = kkbox.get_tracks()
     # print(self.temp_list)
-    youtube = YoutubeAgent(self.temp_list)
+    youtube = YoutubeAgent(self.temp_list, 'data.txt')
     # youtube.print_song_list()
     self.song_list = youtube.get_song_list()
     # print(self.song_list)

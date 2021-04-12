@@ -8,10 +8,11 @@ import credentials
 class YoutubeAgent(object):
   ''' 抓 YouTube 影片的網址 '''
 
-  def __init__(self, tracks):
+  def __init__(self, tracks, txt_file):
     self.youtube = None
     self.tracks = tracks
     self.song_list = []
+    self.txt_file = txt_file
 
     self.init_youtube()
     self.init_song_list_with_txt()
@@ -26,12 +27,12 @@ class YoutubeAgent(object):
 
   def init_song_list_with_txt(self):
     # https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
-    if not os.path.exists('data.txt'):
-      with open('data.txt', 'w'):
+    if not os.path.exists(self.txt_file):
+      with open(self.txt_file, 'w'):
         return
 
     # TODO: 如果 data.txt 是空的會出錯！
-    with open('data.txt') as json_file:
+    with open(self.txt_file) as json_file:
       song_list = json.load(json_file)
       for item in song_list:
         artist, song, videoUrl = item
@@ -78,6 +79,6 @@ class YoutubeAgent(object):
 
   def save_song_list(self):
     # https://pythonexamples.org/python-list-to-json/
-    with open('data.txt', 'w', encoding='utf-8') as outfile:
+    with open(self.txt_file, 'w', encoding='utf-8') as outfile:
       # http://litaotju.github.io/python/2016/06/28/python-json-dump-utf/
       json.dump(self.song_list, outfile, ensure_ascii=False)
