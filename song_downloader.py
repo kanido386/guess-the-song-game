@@ -28,8 +28,17 @@ class SongDownloader(object):
 
 
   def get_tracks_from_txt(self):
-    # TODO: 改成讀 txt 檔
-    return [('王藍茵', '惡作劇'), ('bruno mars', 'when i was your man')]
+    song_list = []
+
+    with open('input.txt', 'r') as f:
+      content = f.readlines()
+      content = [x.strip() for x in content]
+      for item in content:
+        artist, song = item.split(' - ')
+        song_list.append((artist, song))
+
+    # return [('王藍茵', '惡作劇'), ('bruno mars', 'when i was your man')]
+    return song_list
 
 
 if __name__ == '__main__':
