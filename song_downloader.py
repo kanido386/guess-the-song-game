@@ -36,6 +36,8 @@ class SongDownloader(object):
       newUrl = f'{temp[0]}youtubeto{temp[1]}'
       webbrowser.open(newUrl)
 
+    print('標準化音量大小後音檔會變大哦！')
+    print('（雙聲道變成20倍以上、單聲道變成10倍以上）')
     do_normalize = input('要標準化音檔的音量大小嗎(y/n)？ ')
     if do_normalize == 'y':
       download_folder = '../../Downloads'
@@ -46,20 +48,25 @@ class SongDownloader(object):
       for index, item in enumerate(mp3_files, 1):
         print(f'( {index} / {len(mp3_files)} ) {item}')
         current_file = f'{download_folder}/{item}'
-        # TODO: 會不會有些下載的音檔是 mono？
         # https://librosa.org/blog/2019/07/17/resample-on-load/
         # you can always bypass resample-on-load by specifying sr=None
         y, sr = librosa.load(current_file, mono=False, sr=None)
-        left, right = y
-        left = librosa.util.normalize(left) * 0.5
-        right = librosa.util.normalize(right) * 0.5
-        # https://stackoverflow.com/questions/3637350/how-to-write-stereo-wav-files-in-python
-        y = np.vstack((left, right))
-        write(current_file, sr, y.T)
+        if y.shape[0] == 2:
+          # stereo
+          left, right = y
+          left = librosa.util.normalize(left) * 0.5
+          right = librosa.util.normalize(right) * 0.5
+          # https://stackoverflow.com/questions/3637350/how-to-write-stereo-wav-files-in-python
+          y = np.vstack((left, right))
+          write(current_file, sr, y.T)
+        else:
+          # mono
+          y = librosa.util.normalize(y) * 0.5
+          write(current_file, sr, y)
       print('【完成囉！】')
       print('')
     else:
-      print('fine.')
+      print('好的。')
 
 
   def get_tracks_from_txt(self):
