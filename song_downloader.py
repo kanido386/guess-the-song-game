@@ -15,7 +15,13 @@ class SongDownloader(object):
     self.temp_list = None   # [('artist1', 'song1'), ('artist2', 'song2'), ...]
     self.song_list = None
 
+    self.remove_old_song_txt()
     self.run()
+
+
+  def remove_old_song_txt(self):
+    if os.path.exists('song.txt'):
+      os.remove('song.txt')
 
 
   def run(self):
