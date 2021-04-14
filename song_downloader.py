@@ -41,8 +41,11 @@ class SongDownloader(object):
     if do_normalize == 'y':
       download_folder = '../../Downloads'
       mp3_files = [item for item in os.listdir(download_folder) if '.mp3' in item]
-      print(mp3_files)
-      for item in mp3_files:
+      # print(mp3_files)
+      print('==============================')
+      print('【正在進行標準化音量大小】')
+      for index, item in enumerate(mp3_files, 1):
+        print(f'( {index} / {len(mp3_files)} ) {item}')
         current_file = f'{download_folder}/{item}'
         # TODO: 會不會有些下載的音檔是 mono？
         y, sr = librosa.load(current_file, mono=False)
@@ -52,6 +55,8 @@ class SongDownloader(object):
         # https://stackoverflow.com/questions/3637350/how-to-write-stereo-wav-files-in-python
         y = np.vstack((left, right))
         write(current_file, sr, y.T)
+      print('【完成囉！】')
+      print('')
     else:
       print('fine.')
 
