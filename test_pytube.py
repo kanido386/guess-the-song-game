@@ -7,6 +7,7 @@ import os
 import time
 import librosa
 from scipy.io.wavfile import write
+import numpy as np
 
 # Turn off the warning "PySoundFile failed. Trying audioread instead."
 import warnings
@@ -42,15 +43,36 @@ while True:
 
   print('（轉檔中）')
 
-  y, sr = librosa.load(f'{filepath}/temp.webm')
-  y = librosa.util.normalize(y)
+  y, sr = librosa.load(f'{filepath}/temp.webm', mono=False, sr=None)
+  if y.shape[0] == 2:
+    # stereo
+    left, right = y
+    left = librosa.util.normalize(left) * 0.5
+    right = librosa.util.normalize(right) * 0.5
+    # https://stackoverflow.com/questions/3637350/how-to-write-stereo-wav-files-in-python
+    y = np.vstack((left, right))
+    write(f'{filepath}/{song_name}.wav', sr, y.T)
+  else:
+    # mono
+    y = librosa.util.normalize(y) * 0.5
+    write(f'{filepath}/{song_name}.wav', sr, y)
 
+  # ==============================
+
+  # old version
+
+  # y, sr = librosa.load(f'{filepath}/temp.webm')
+  # y = librosa.util.normalize(y)
+
+  # write(f'{filepath}/{song_name}.wav', sr, y)
+
+  # ==============================
+
+  # remove webm file
   if os.path.exists(f'{filepath}/temp.webm'):
     os.remove(f'{filepath}/temp.webm')
   else:
     print('The file does not exist')
-
-  write(f'{filepath}/{song_name}.wav', sr, y)
 
   print('（完成）')
   
