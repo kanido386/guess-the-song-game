@@ -33,16 +33,16 @@ class SongDownloader(object):
     # print(self.song_list)
     
     # youtubeto is not working anymore...
-    # for artist, song, videoUrl in self.song_list:
-    #   temp = videoUrl.split('youtube')
-    #   newUrl = f'{temp[0]}youtubeto{temp[1]}'
-    #   webbrowser.open(newUrl)
-
-    # TODO: The generated file is huge --> need to be compressed
     for artist, song, videoUrl in self.song_list:
-      # print(f'{artist} - {song}: {videoUrl}')
-      pytube = PytubeAgent(artist, song, videoUrl)
-      pytube.run()
+      temp = videoUrl.split('youtube')
+      newUrl = f'{temp[0]}backupmp3{temp[1]}'
+      webbrowser.open(newUrl)
+
+    # # TODO: The generated file is huge --> need to be compressed
+    # for artist, song, videoUrl in self.song_list:
+    #   # print(f'{artist} - {song}: {videoUrl}')
+    #   pytube = PytubeAgent(artist, song, videoUrl)
+    #   pytube.run()
 
     print('標準化音量大小後音檔會變大哦！')
     print('（雙聲道變成20倍以上、單聲道變成10倍以上）')
@@ -76,9 +76,10 @@ class SongDownloader(object):
     else:
       print('好的。')
     
-    print('**************************************************************')
-    print('* 記得到 https://online-audio-converter.com/tw/ 壓縮檔案哦～ *')
-    print('**************************************************************')
+    # # TODO: The generated file is huge --> need to be compressed
+    # print('**************************************************************')
+    # print('* 記得到 https://online-audio-converter.com/tw/ 壓縮檔案哦～ *')
+    # print('**************************************************************')
 
 
   def get_tracks_from_txt(self):
