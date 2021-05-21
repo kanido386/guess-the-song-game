@@ -1,6 +1,6 @@
 xpinyin==0.5.5
 bopomofo==0.1.2
-pytube==10.6.0
+pytube==10.8.2
 librosa==0.8.0
 scipy==1.5.4
 google-api-python-client==2.0.2
