@@ -53,6 +53,7 @@ while True:
   # audioPlayer.set_mrl(playurl)
   audioPlayer.set_mrl(playurl, ':no-video')
   audioPlayer.play()
+  print(playurl)
   print('（播放中）')
 
 

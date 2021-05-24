@@ -8,3 +8,4 @@ youtube-dl==2021.4.7
 pafy==0.5.5
 python-vlc==3.0.11115
 numpy==1.19.5
+PyQt5==5.15.4
