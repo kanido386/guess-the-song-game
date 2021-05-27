@@ -1,6 +1,9 @@
 # PyQt 入門，用 Python 寫第一支 GUI
 # https://zhung.com.tw/article/pyqt入門用python寫第一支gui/
 
+# Creating a GUI Wrapper for VLC Media Player in python/wxpython
+# https://www.daniweb.com/programming/tutorials/523626/creating-a-gui-wrapper-for-vlc-media-player-in-python-wxpython
+
 from sys import flags
 from typing import Text
 from PyQt5 import QtWidgets
