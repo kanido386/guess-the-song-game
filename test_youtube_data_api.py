@@ -37,6 +37,10 @@ while True:
   # The video that is most relevant to the search query
   firstVideo = response['items'][0]
 
+  print(firstVideo)
+  print(firstVideo['snippet']['title'])
+  print(firstVideo['snippet']['thumbnails']['high']['url'])
+
   videoId = firstVideo['id']['videoId']
   videoUrl = f'https://www.youtube.com/watch?v={videoId}'
   print('影片網址:', videoUrl)
